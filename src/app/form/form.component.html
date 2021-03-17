@@ -1,0 +1,30 @@
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input formControlName="email" matInput>
+    <mat-error *ngIf="errorHandling('email', 'required')">
+      Email is required
+    </mat-error>
+    <mat-error *ngIf="errorHandling('email', 'email')">
+      This should be an email address.
+    </mat-error>
+  </mat-form-field>
+
+  <br/>
+
+
+  <mat-form-field appearance="fill">
+    <mat-label>Mobile</mat-label>
+    <input formControlName="mobile" matInput>
+    <mat-error *ngIf="errorHandling('email', 'required')">
+      Mobile is required
+    </mat-error>
+  </mat-form-field>
+  <br/>
+  <button mat-flat-button color="primary" type="submit" [disabled]="!contactForm.valid">Save</button>
+
+</form>
+
+
+
